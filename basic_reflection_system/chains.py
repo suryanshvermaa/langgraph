@@ -25,6 +25,6 @@ reflection_prompt=ChatPromptTemplate.from_messages(
     ]
 )
 
-llm=ChatGoogleGenerativeAI(model="gemini-2.0-flash")
+llm=ChatGoogleGenerativeAI(model="gemini-1.5-pro")
 generation_chain=generation_prompt|llm
 reflection_chain=reflection_prompt|llm
