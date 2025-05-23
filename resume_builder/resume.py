@@ -26,7 +26,7 @@ graph.add_node(REFLECT,reflect_node)
 graph.set_entry_point(GENERATE)
 
 def should_continue(state):
-    if (len(state) > 2):
+    if (len(state) > 4):
         return END
     return REFLECT
 
@@ -39,12 +39,12 @@ app=graph.compile()
 
 import streamlit as st
 
-st.title("Simple Post Generator")
-user_input = st.text_area("Enter some text:", height=150)
+st.title("Resume project lines builder")
+user_input = st.text_area("Enter your project description:", height=150)
 
-if st.button("Process"):
+if st.button("Generate"):
     res=app.invoke(HumanMessage(content=user_input))
     last_ai_message = [msg for msg in res if isinstance(msg, AIMessage)][-1]
     result = last_ai_message.content
-    st.subheader("Processed Output:")
+    st.subheader("Generated Content:")
     st.write(result)
