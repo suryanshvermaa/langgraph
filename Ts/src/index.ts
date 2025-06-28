@@ -1,8 +1,19 @@
-import llm from "./config/langchain";
-import ResponseFormatterSchema from "./structured-output";
+import { HumanMessage } from "@langchain/core/messages";
+import { getAgent } from "./ReactAgent"
 
-async function call(){
-   const structured_llm=llm.withStructuredOutput(ResponseFormatterSchema);
-   console.log(((await structured_llm.invoke("Tell me about france."))));
+
+async function call(prompt:string){
+   const agent=await getAgent();
+   const agentFinalState = await agent.invoke(
+           { messages: [new HumanMessage(prompt)] },
+           { configurable: { thread_id: "42" } },
+         );
+         console.log(
+           agentFinalState.messages[agentFinalState.messages.length - 1].content,
+       );
 }
-call()
+(async function(){
+   await call("My name is suryansh?");
+   await call("what is 2+2?");
+   await call("Who i am?");
+})()

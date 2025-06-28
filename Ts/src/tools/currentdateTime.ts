@@ -1,13 +1,10 @@
-import {DynamicStructuredTool} from "@langchain/core/tools";
+import {DynamicStructuredTool, tool} from "@langchain/core/tools";
 import {z} from "zod"
 const getCurrDateTime=async()=>{
     return (new Date()).toDateString();
 }
-export const dateTimetool=new DynamicStructuredTool({
+export const dateTimetool=tool(getCurrDateTime,{
     name:"getCurrDateTime",
     description:"returns current date and time",
-    func:async()=>{
-        return await getCurrDateTime();
-    },
     schema: z.object({})
 });
