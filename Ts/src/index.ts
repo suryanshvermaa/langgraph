@@ -1,8 +1,8 @@
-import callLLm from "./langgraph-react-agent";
+import llm from "./config/langchain";
+import ResponseFormatterSchema from "./structured-output";
 
 async function call(){
-   await callLLm("My name is suryansh.")
-   await callLLm("What is my name?")
-   await callLLm("What is current date and day?")
+   const structured_llm=llm.withStructuredOutput(ResponseFormatterSchema);
+   console.log(((await structured_llm.invoke("Tell me about france."))));
 }
 call()
