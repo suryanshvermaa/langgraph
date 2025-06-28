@@ -23,6 +23,9 @@ importers:
       dotenv:
         specifier: ^17.0.0
         version: 17.0.0
+      langchain:
+        specifier: ^0.3.29
+        version: 0.3.29(@langchain/core@0.3.61(openai@5.8.2(ws@8.18.2)(zod@3.25.67)))(@langchain/google-genai@0.2.14(@langchain/core@0.3.61(openai@5.8.2(ws@8.18.2)(zod@3.25.67))))(axios@1.10.0)(openai@5.8.2(ws@8.18.2)(zod@3.25.67))(ws@8.18.2)
     devDependencies:
       '@types/node':
         specifier: ^24.0.7
@@ -1932,7 +1935,7 @@ snapshots:
       isstream: 0.1.2
       jsonwebtoken: 9.0.2
       mime-types: 2.1.35
-      retry-axios: 2.6.0(axios@1.10.0)
+      retry-axios: 2.6.0(axios@1.10.0(debug@4.4.1))
       tough-cookie: 4.1.4
     transitivePeerDependencies:
       - supports-color
@@ -2180,7 +2183,7 @@ snapshots:
 
   requires-port@1.0.0: {}
 
-  retry-axios@2.6.0(axios@1.10.0):
+  retry-axios@2.6.0(axios@1.10.0(debug@4.4.1)):
     dependencies:
       axios: 1.10.0(debug@4.4.1)
 
