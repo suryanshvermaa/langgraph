@@ -1,7 +1,7 @@
 import { MemorySaver } from "@langchain/langgraph";
 import { HumanMessage } from "@langchain/core/messages";
 import {createReactAgent} from "@langchain/langgraph/prebuilt";
-import llm from "../config/langchain";
+import {llm} from "../config/langchain";
 import { dateTimetool } from "../tools/currentdateTime";
 
 const agentCheckPointer=new MemorySaver();
