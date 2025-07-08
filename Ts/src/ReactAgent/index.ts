@@ -2,7 +2,7 @@ import { END, MemorySaver } from "@langchain/langgraph";
 import { dateTimetool } from "../tools/currentdateTime";
 import * as hub from "langchain/hub/node";
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
-import llm from "../config/langchain";
+import {llm} from "../config/langchain";
 import { Runnable, RunnableConfig } from "@langchain/core/runnables";
 
 const agentCheckPointer=new MemorySaver();
